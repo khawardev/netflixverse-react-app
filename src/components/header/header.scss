@@ -1,0 +1,162 @@
+@import "../../mixins.scss";
+
+.header {
+  padding: 15px 5px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  // transition: all 0.2s ease-in-out;
+  background-color: #41414153;
+  @include md {
+    padding: 15px 20px;
+  }
+}
+
+.header .container {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.header .container-fluid {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 110px;
+  opacity: 0.9;
+  transition: 0.2s;
+}
+.logo img:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  opacity: 1;
+}
+.list {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+.nav-menu li {
+  list-style-type: none;
+}
+.nav-menu span {
+  color: whitesmoke;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
+  transition: 0.3s;
+}
+.nav-menu span:hover {
+  color: white;
+  transition: 0.3s;
+}
+.navbar--blur {
+  background-color: #222222;
+  transition: all 0.1s ease-in-out;
+}
+.navbar--blur-reset {
+  background-color: #41414153;
+  transition: all 0.1s ease-in-out;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: 2.7em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+  transition: stroke-dasharray 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+.header-color {
+  background-color: #222222;
+}
+
+// .nav-menu-transition {
+//   transition: all 300s ease-in-out;
+//   transition: 10s;
+// }
+
+@media screen and (max-width: 1240px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu span {
+    background-color: transparent;
+    padding: 10px 105px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 0px;
+    color: #c3c3c3;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .nav-menu span:hover {
+    background-color: transparent;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 53px;
+    display: none;
+    right: -100%;
+    width: 100%;
+    transition: 5s;
+    transition: opacity 400ms ease;
+    // transition: all 111s ease-in-out;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    transition: opacity 400ms ease;
+    right: 0;
+    transition: 0.4s;
+    display: block;
+    padding: 20px 0px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    padding: 10px 0px;
+    border-top: 1px solid #8a8a8a91;
+    background-color: #222222;
+    transition: all 0.2s ease-in-out;
+  }
+}

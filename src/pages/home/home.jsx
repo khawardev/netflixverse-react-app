@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import './home.scss'
-const home = () => {
+import HeroBanner from './heroBanner/heroBanner'
+const Home = () => {
     return (
-        <div>home</div>
+        <div className='homepage'>
+            <HeroBanner />
+        </div>
     )
 }
 
-export default home
+export default Home

@@ -9,8 +9,8 @@ const headers = {
 
 export const fetchDataFromApi = async (url) => {
     try {
-        const response = await axios.get(BASE_URL + url, { headers });
-        return response.data;
+        const response = await axios?.get(BASE_URL + url, { headers });
+        return response?.data;
     } catch (error) {
         console.log("Error in fetching API: ", error);
         throw error;
