@@ -12,7 +12,7 @@ import Lazyloadimage from '../../../components/lazyLoadImage/LazyloadImage'
 import ContentWrapper from '../../../components/contentWrapper/contentWrapper'
 const HeroBanner = () => {
 
-  const { data, loading } = useFetch("/movie/popular") // set url for fetching images from api
+  const { data, loading } = useFetch("/movie/upcoming") // set url for fetching images from api
 
   const [Background, SetBackground] = useState(""); // set background images into state
 

@@ -12,17 +12,18 @@ import {
     FaYoutubeSquare,
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { BiSearch, BiX } from "react-icons/Bi";
 import { NavLink } from "react-router-dom";
+import { useRef } from 'react';
 const Header = () => {
 
     const navigate = useNavigate();
-
+    const checkboxRef = useRef(null);
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     const [scrollPos, setScrollPos] = useState(0);
+    const [isColorChanged, setIsColorChanged] = useState(false);
+    const [searchVisible, setSearchVisible] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,10 +36,11 @@ const Header = () => {
     }, []);
 
     const handleMenuItemClick = () => {
-        setIsMenuOpen(false);
         setClick(false); // Reset click state when navigating to a new page
+        setIsColorChanged(!isColorChanged); // Reset Color when navigating to a new page
+        checkboxRef.current.click(); // Trigger the checkbox click event
     };
-    const handleheaderclick = () => {
+    const handleheaderColorclick = () => {
         setIsColorChanged(!isColorChanged);
     }
     useEffect(() => {
@@ -46,9 +48,12 @@ const Header = () => {
     }, []);
 
 
-    const [isColorChanged, setIsColorChanged] = useState(false);
 
 
+    const handleSearchClick = () => {
+        setSearchVisible(!searchVisible);
+
+    };
 
 
     return (
@@ -61,8 +66,7 @@ const Header = () => {
                         <img onClick={() => navigate('/')} src={Logo} width="90px" />
                     </div>
                     <div className="list">
-                        <span className={click ? 'nav-menu active nav-menu-transition' : 'nav-menu'} style={{ display: isMenuOpen }}>
-
+                        <span className={click ? 'nav-menu active nav-menu-transition' : 'nav-menu'} >
                             <li>
                                 <span onClick={() => { navigate('/'); handleMenuItemClick(); }}>Movies</span>
                             </li>
@@ -70,10 +74,26 @@ const Header = () => {
                                 <span onClick={() => { navigate('/about'); handleMenuItemClick(); }}>Tv Series</span>
                             </li>
 
+                            <li className="d-flex align-items-center justify-content-center gap-3 py-3 py-sm-0">
+                                {searchVisible ? (
+                                    <input
+                                        type="text"
+                                        className="search-input-header"
+                                        autoFocus
+                                        placeholder="search movies & tv series"
+                                    />
+                                ) : null}
+                                {searchVisible ? (
+                                    <BiX className="close-icon" onClick={handleSearchClick} />
+                                ) : (
+                                    <BiSearch className="search-icon" onClick={handleSearchClick} />
+                                )}
+                            </li>
+
                         </span>
                     </div>
                     <label className="hamburger" >
-                        <input type="checkbox" onClick={() => { handleClick(); setIsMenuOpen(!isMenuOpen); handleheaderclick(); }} />
+                        <input type="checkbox" ref={checkboxRef} onClick={() => { handleClick(); handleheaderColorclick(); }} />
                         <svg viewBox="0 0 32 32">
                             <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
                             <path className="line" d="M7 16 27 16"></path>
