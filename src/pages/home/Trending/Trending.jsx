@@ -3,20 +3,30 @@
 import './Trending.scss';
 import Extraction from '../../../assets/Extraction.png';
 import Switchtabs from '../../../components/switchTabs/Switchtabs';
+import { useState } from 'react';
+import useFetch from '../../../hooks/Usefetch';
+import Carousel from '../../../components/carousel/Carousel';
 const Trending = () => {
 
-    const onTabchange = (change) => {
+    const [endpoint, setEndpoint] = useState("day")
+    const { data, loading } = useFetch(`/trending/all/${endpoint}`)
+    console.log(data);
 
+
+
+    const onTabchange = (tab) => {
+        setEndpoint(tab === "Day" ? "day" : "week")
     }
     return (
         <>
 
-            <div className="container bg-success " style={{ padding: '100px auto' }}>
-                <div className="row"  >
-                    <div className="col-12 p-0  d-flex align-items-center justify-content-between bg-danger ">
-                        <span className='caouselTitle'>Trending</span>
-                        <Switchtabs data={['Day', 'Week']} onTabchange={onTabchange} />
-                    </div>
+            <div className="container  py-5" >
+                <div className="mb-md-5 mb-4   d-flex align-items-center justify-content-between mx-2">
+                    <span className=' italic-bold bolder'>TRENDING</span>
+                    <Switchtabs data={['Day', 'Week']} onTabchange={onTabchange} />
+                </div>
+                <div>
+                    <Carousel data={data?.results} loading={loading} />
                 </div>
             </div>
 

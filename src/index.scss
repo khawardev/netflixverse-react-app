@@ -2,11 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @font-face {
-  font-family: 'Argent' ;
+  font-family: "Argent";
   src: url(../src/assets/Argent\ CF.otf);
 }
 :root {
-  line-height: 1;
   font-weight: 500;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,9 +20,10 @@
   --black-light: #173d77;
   --pink: #da2f68;
   --orange: #f89e00;
-  --gradient: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+  --red: #da0101;
+  --gradient: linear-gradient(98.37deg, var(--red) 0.99%, #a30000 100%);
 }
-
+// font-family: 'Alegreya', serif;
 * {
   margin: 0;
   padding: 0;
@@ -37,6 +37,7 @@ body {
   color: rgb(255, 255, 255);
   font-family: "Lato", sans-serif;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -84,9 +85,32 @@ body {
   height: 42px;
   font-weight: bolder;
   transition: 0.2s;
-  background-color: #da0101;
+  background-color: var(--red);
 }
 .global-button:hover {
   background-color: #cb0000;
   transition: 0.2s;
+}
+.italic-bold {
+  font-size: 22px;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+}
+.italic-bold-title {
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+  line-height: 1.3;
+  color: #cb0000;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bolder {
+  font-weight: 900;
 }

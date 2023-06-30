@@ -11,7 +11,7 @@ p {
 .Rounded-Footer-menu:hover {
   border-radius: 20px;
   transition: 0.2s;
-  background-color: #da0101;
+  background-color: var(--red);
 }
 
 .Font-style {
@@ -55,7 +55,7 @@ p {
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: #da0101;
+      background-color: var(--red);
       border-radius: 50%;
       transition: all 1.4s cubic-bezier(0.25, 1, 0.5, 1); // easeOutQuart
       transform: translateY(-100%);
@@ -63,7 +63,7 @@ p {
   }
 
   &:hover {
-    border-color: #da0101;
+    border-color: var(--red);
     transform: translateY(-4px);
     .fill-container {
       transform: translateY(-50%) rotate(0);
@@ -111,7 +111,7 @@ p {
       height: 42px;
       width: 43px;
 
-      background-color: #da0101;
+      background-color: var(--red);
       border-radius: 50%;
       transition: all 1.4s cubic-bezier(0.25, 1, 0.5, 1); // easeOutQuart
       transform: translateY(-100%);
@@ -121,7 +121,7 @@ p {
   &:hover {
     height: 42px;
     width: 43px;
-    border-color: #da0101;
+    border-color: var(--red);
     .fill-container {
       transform: translateY(-50%) rotate(0);
       &::after {

@@ -101,7 +101,7 @@
       height: 42px;
       font-weight: bolder;
       transition: 0.2s;
-      background-color: #da0101;
+      background-color: var(--red);
 
       @include sm {
         padding: 0.5rem 2rem;
