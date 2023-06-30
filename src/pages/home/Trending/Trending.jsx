@@ -2,7 +2,6 @@
 // import './Trending.js';
 import './Trending.scss';
 import Extraction from '../../../assets/Extraction.png';
-import John from '../../../assets/John Wick.png';
 import Switchtabs from '../../../components/switchTabs/Switchtabs';
 const Trending = () => {
 

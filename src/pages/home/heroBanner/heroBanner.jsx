@@ -2,14 +2,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import './heroBanner.scss'
-import John from '../../../assets/John wick.png';
-import Spiderman from '../../../assets/Spiderman.png';
-import extraction from '../../../assets/Extraction.png';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../../hooks/Usefetch';
 import { useSelector } from 'react-redux';
 import Lazyloadimage from '../../../components/lazyLoadImage/LazyloadImage'
-import ContentWrapper from '../../../components/contentWrapper/contentWrapper'
 import BackgroundImage from '../../../assets/Background.png'
 const HeroBanner = () => {
 
