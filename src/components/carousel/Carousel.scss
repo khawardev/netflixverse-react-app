@@ -15,7 +15,7 @@
     font-size: 40px;
     color: rgb(220, 220, 220);
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0.5;
@@ -134,7 +134,7 @@
           width: 40px;
           height: 40px;
           position: relative;
-          top: 30px;
+          top: 25px;
           background-color: white;
           flex-shrink: 0;
           @include md {
@@ -172,4 +172,12 @@
       }
     }
   }
+}
+.release {
+  color: rgb(150, 150, 150);
+  margin-top: 5px;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-style: italic;
 }
