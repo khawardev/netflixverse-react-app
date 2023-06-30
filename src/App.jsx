@@ -13,7 +13,7 @@ import Details from './pages/details/details'
 import SearchResult from './pages/searchResult/searchResult'
 import Explore from './pages/explore/explore'
 import PageNotFound from './pages/404/pageNotFound'
-
+import Trending from './pages/home/Trending/Trending.jsx';
 const App = () => {
 
   const dispatch = useDispatch()
@@ -49,8 +49,10 @@ const App = () => {
         <Route path='/search/:query' element={<SearchResult />} />
         <Route path='/explore/:mediaType' element={<Explore />} />
         <Route path='*' element={<PageNotFound />} />
+        <Route path='/trending' element={<Trending />} />
+
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
 
 

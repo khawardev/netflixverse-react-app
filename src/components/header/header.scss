@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   z-index: 10;
-  // transition: all 0.2s ease-in-out;
+  // transition: all 0.5s ease-in-out;
   background-color: #41414153;
   @include md {
     padding: 15px 20px;
@@ -62,10 +62,18 @@
 .navbar--blur {
   background-color: #121212;
   transition: all 0.1s ease-in-out;
+
+  @include md {
+    transition: all 0.3s ease-in-out;
+  }
 }
 .navbar--blur-reset {
   background-color: #41414153;
   transition: all 0.1s ease-in-out;
+
+  @include md {
+    transition: all 0.3s ease-in-out;
+  }
 }
 .hamburger {
   display: none;
@@ -117,22 +125,38 @@
   cursor: pointer;
 }
 .search-input-header {
-  border: 2px solid rgba(217, 217, 217, 0.17);
+  // border: 2px solid rgba(217, 217, 217, 0.17);
   border-radius: 30px;
   padding: 2px 20px;
   outline: 0;
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
+  // background-color: rgba(0, 0, 0, 0);
+  background: rgba(149, 149, 149, 0.337);
+  color: whitesmoke;
   transition: 0.4s;
   // font-family: "Alegreya", serif;
   font-weight: bold;
   font-style: italic;
+  animation: mobileSearchFade 0.3s ease-in-out forwards;
+  outline: 0;
+  border: 0;
 }
-
 .search-input-header:focus {
-  border: 2px solid rgba(217, 217, 217, 0.432);
-
+  // border: 2px solid rgba(217, 217, 217, 0.432);
+  outline: 0;
+  border: 0;
   transition: 0.4s;
+}
+.search-input-header::placeholder {
+  color: white;
+  z-index: 1;
+}
+@keyframes mobileSearchFade {
+  0% {
+    opacity: 0; /* Initial opacity is 0 */
+  }
+  100% {
+    opacity: 1; /* Fade to full opacity */
+  }
 }
 @media screen and (max-width: 1240px) {
   .hamburger {
@@ -171,7 +195,7 @@
     transition: 0.4s;
     display: block;
     padding: 20px 0px;
-    transition: all 0.2s ease-in-out;
+    // transition: all 0.1s ease-in-out;
   }
 
   .nav-menu li {
@@ -179,6 +203,16 @@
     padding: 10px 0px;
     border-top: 1px solid #39393991;
     background-color: #121212;
-    transition: all 0.2s ease-in-out;
+    opacity: 0; /* Start with 0 opacity */
+    animation: mobileMenuFade 0.3s ease-in-out forwards;
+  }
+
+  @keyframes mobileMenuFade {
+    0% {
+      opacity: 0; /* Initial opacity is 0 */
+    }
+    100% {
+      opacity: 1; /* Fade to full opacity */
+    }
   }
 }

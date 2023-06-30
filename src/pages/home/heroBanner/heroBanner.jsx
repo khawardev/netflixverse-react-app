@@ -10,10 +10,10 @@ import useFetch from '../../../hooks/Usefetch';
 import { useSelector } from 'react-redux';
 import Lazyloadimage from '../../../components/lazyLoadImage/LazyloadImage'
 import ContentWrapper from '../../../components/contentWrapper/contentWrapper'
+import BackgroundImage from '../../../assets/Background.png'
 const HeroBanner = () => {
 
   const { data, loading } = useFetch("/movie/upcoming") // set url for fetching images from api
-
   const [Background, SetBackground] = useState(""); // set background images into state
 
   const [query, setquery] = useState(''); // setquery from input into the state
@@ -48,7 +48,7 @@ const HeroBanner = () => {
             <div className="hero-banner">
               <div className="opacity-layer-2">
                 <Lazyloadimage
-                  src={url !== undefined ? Background : 'https://image.tmdb.org/t/p/original/nGxUxi3PfXDRm7Vg95VBNgNM8yc.jpg'}
+                  src={Background ? Background : BackgroundImage}
                   alt="Hero Banner"
                   className="banner-image"
                 />

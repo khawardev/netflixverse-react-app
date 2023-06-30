@@ -2,7 +2,7 @@
 import React from 'react'
 import './header.scss';
 import logo from '../../assets/movix-logo.png'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import Logo from '../../assets/Netflix.png'
@@ -12,18 +12,28 @@ import {
     FaYoutubeSquare,
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { BiSearch, BiX } from "react-icons/Bi";
+import { BiSearch, BiX } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { useRef } from 'react';
+
 const Header = () => {
 
-    const navigate = useNavigate();
+    const Navigate = useNavigate();
     const checkboxRef = useRef(null);
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
     const [scrollPos, setScrollPos] = useState(0);
     const [isColorChanged, setIsColorChanged] = useState(false);
     const [searchVisible, setSearchVisible] = useState(false);
+    const [query, setQuery] = useState('');
+    const location = useLocation();
+
+    useEffect(() => {   // to scroll to top after navigating to page
+        window.scrollTo(0, 0);
+    }, [location]);
+
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,7 +45,7 @@ const Header = () => {
         };
     }, []);
 
-    const handleMenuItemClick = () => {
+    const handleMenuItemClick = () => {    // open menu bar list in mobile view
         setClick(false); // Reset click state when navigating to a new page
         setIsColorChanged(!isColorChanged); // Reset Color when navigating to a new page
         checkboxRef.current.click(); // Trigger the checkbox click event
@@ -55,6 +65,16 @@ const Header = () => {
 
     };
 
+    const searchQueryHandler = (event) => {
+        if (event.key === "Enter" && query.length > 0) { // function to handle on Enter event
+            Navigate(`/search/${query}`)
+            setTimeout(() => {
+                setSearchVisible(!searchVisible);
+            }, 300);
+            handleMenuItemClick();
+        }
+
+    }
 
     return (
         <>
@@ -63,15 +83,15 @@ const Header = () => {
 
                 <div className='container-md container-fluid '>
                     <div className='logo' >
-                        <img onClick={() => navigate('/')} src={Logo} width="90px" />
+                        <img onClick={() => { Navigate('/'); }} src={Logo} width="90px" />
                     </div>
                     <div className="list">
                         <span className={click ? 'nav-menu active nav-menu-transition' : 'nav-menu'} >
                             <li>
-                                <span onClick={() => { navigate('/'); handleMenuItemClick(); }}>Movies</span>
+                                <span onClick={() => { Navigate('/media/1'); handleMenuItemClick(); }}>Movies</span>
                             </li>
                             <li>
-                                <span onClick={() => { navigate('/about'); handleMenuItemClick(); }}>Tv Series</span>
+                                <span onClick={() => { Navigate('/search/hello'); handleMenuItemClick(); }}>Tv Series</span>
                             </li>
 
                             <li className="d-flex align-items-center justify-content-center gap-3 py-3 py-sm-0">
@@ -81,6 +101,10 @@ const Header = () => {
                                         className="search-input-header"
                                         autoFocus
                                         placeholder="search movies & tv series"
+                                        onChange={(event) => setQuery(event.target.value)}
+                                        onKeyUp={searchQueryHandler}
+
+
                                     />
                                 ) : null}
                                 {searchVisible ? (
