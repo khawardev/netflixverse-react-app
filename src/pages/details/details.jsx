@@ -1,9 +1,20 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './details.scss'
+import DetailsBanner from './detailsBanner/detailsBanner.jsx'
+import { useParams } from 'react-router-dom';
+import useFetch from '../../hooks/Usefetch.jsx';
 const details = () => {
+
+  const { mediaType, id } = useParams();
+  const { data, loading } = useFetch(`/${mediaType}/${id}/videos`)
+  const { data: credits, loading: creditsLoading } = useFetch(`/${mediaType}/${id}/credits`);
+
+
   return (
-    <div className=' text-white'>details</div>
+    <div >
+      <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
+    </div>
   )
 }
 

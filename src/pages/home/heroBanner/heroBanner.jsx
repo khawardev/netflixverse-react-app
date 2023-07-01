@@ -26,8 +26,7 @@ const HeroBanner = () => {
   }
 
   useEffect(() => {
-    const Bg = url?.backdrop + data?.results?.       // set proper url of image from fetching home slice
-    [Math.floor(Math.random() * 20)]?.backdrop_path;
+    const Bg = url?.backdrop + data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
     SetBackground(Bg);
   }, [data]);
 
@@ -35,10 +34,7 @@ const HeroBanner = () => {
 
   return (
     <>
-
-
-
-      <div className="container-fluid text-white">
+      <div className="container-fluid text-white ">
         <div className="row text-center " >
           <div className="col-12 p-0" >
             <div className="hero-banner">
@@ -48,6 +44,8 @@ const HeroBanner = () => {
                   alt="Hero Banner"
                   className="banner-image"
                 />
+                <div className="opacity-layer"></div>
+
               </div>
 
               <div className="banner-content">
@@ -61,9 +59,6 @@ const HeroBanner = () => {
                   <button className="search-button">Search</button>
                 </div>
               </div>
-
-              <div className="opacity-layer"></div>
-
             </div>
 
           </div>

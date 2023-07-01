@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import Lazyloadimage from '../lazyLoadImage/LazyloadImage'
 import PosterFallback from "../../assets/no-poster.png";
-import CircleRating from '../circleRating/circleRating';
+import CircleRating from '../circleRating/circleRating.jsx';
 import Genres from '../Genres/Genres';
 
 
@@ -69,7 +69,7 @@ const Carousel = ({ data, Loading, endpoint }) => {
                             >
                                 <div className='posterBlock'>
                                     <Lazyloadimage src={posterUrl} alt='' />
-                                    <CircleRating Rating={item.vote_average.toFixed(1)} />
+                                    <CircleRating width={'45px'} height={'45px'} Rating={item.vote_average.toFixed(1)} />
                                     <Genres data={item.genre_ids.slice(0, 2)} />
                                 </div>
                                 <div className='textBlock mt-4 italic-bold-title'>

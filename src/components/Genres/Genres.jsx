@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from 'react-redux';
 import './Genres.scss';
-const Genres = ({ data }) => {
+const Genres = ({ data, paddingx, fontSize }) => {
     const { genres } = useSelector((state) => state.home)
     // console.log("Genres id Data from carousel ", data);
     // console.log("Genres id Data from Store ", genres);
@@ -9,22 +9,20 @@ const Genres = ({ data }) => {
     return (
         <>
 
-
-
             <div className="genres">
                 {data?.map((gen) => {
                     if (!genres[gen]?.name) return;
                     return (
-                        <div className="genre" key={gen.ad}>
+                        <div className="genre" key={gen.id} style={{
+                            padding: paddingx ? `2px 20px` : null,
+                            fontSize: fontSize ? `${fontSize}` : null
+                        }}
+                        >
                             {genres[gen]?.name}
                         </div>
                     );
                 })}
             </div>
-
-
-
-
 
         </>
     )
