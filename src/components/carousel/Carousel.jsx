@@ -12,13 +12,25 @@ import dayjs from "dayjs";
 import Lazyloadimage from '../lazyLoadImage/LazyloadImage'
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from '../circleRating/circleRating';
-const Carousel = ({ data, Loading }) => {
-    const carouselContainer = useRef();
+import Genres from '../Genres/Genres';
+
+
+const Carousel = ({ data, Loading, endpoint }) => {
+
+    console.log("Endpoint from top rated and popular", endpoint);
+
     const { url } = useSelector((state) => state.home);
     const Navigate = useNavigate();
+    const carouselContainer = useRef();
     const navigation = (dir) => {
+        const container = carouselContainer.current;
+        const scrollAmount = dir === "left" ? container.scrollLeft - (container.offsetWidth + 20) : container.scrollLeft + (container.offsetWidth + 20);
 
-    }
+        container.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth",
+        });
+    };
     console.log(data);
 
     const skItems = () => {
@@ -37,11 +49,11 @@ const Carousel = ({ data, Loading }) => {
         )
     }
     return (
-        <div className='carousel py-md-0 py-3' ref={carouselContainer}>
-            <BsFillArrowLeftCircleFill className='carouselLeftNav arrow' onClick={() => Navigate("left")} />
-            <BsFillArrowRightCircleFill className='carouselRighttNav arrow' onClick={() => Navigate("right")} />
+        <div className='carousel py-md-0 py-3' >
+            <BsFillArrowLeftCircleFill className='carouselLeftNav arrow' onClick={() => navigation("left")} />
+            <BsFillArrowRightCircleFill className='carouselRighttNav arrow' onClick={() => navigation("right")} />
             {!Loading ? (
-                <div className='carouselItems'>
+                <div className='carouselItems' ref={carouselContainer}>
                     {data?.map((item) => {
                         const posterUrl = item.poster_path ? url.poster + item.poster_path : PosterFallback;
                         const releaseDate = new Date(item.release_date || item.first_air_date);
@@ -51,19 +63,21 @@ const Carousel = ({ data, Loading }) => {
                             year: "numeric",
                         });
                         return (
-                            <div key={item.id} className='carouselItem'>
+                            <div key={item.id}
+                                className='carouselItem'
+                                onClick={() => Navigate(`/${endpoint || item.media_type}/${item.id}`)}
+                            >
                                 <div className='posterBlock'>
                                     <Lazyloadimage src={posterUrl} alt='' />
                                     <CircleRating Rating={item.vote_average.toFixed(1)} />
+                                    <Genres data={item.genre_ids.slice(0, 2)} />
                                 </div>
-                                <div className="textBlock mt-4 italic-bold-title">
+                                <div className='textBlock mt-4 italic-bold-title'>
                                     {item.title || item.name}
                                 </div>
-
-                                <div className="date release">
-                                    {formattedDate}
-                                </div>
+                                <div className='date release'>{formattedDate}</div>
                             </div>
+
                         );
                     })}
                 </div>

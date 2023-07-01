@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { fetchDataFromApi } from './utils/api';
 import { useSelector, useDispatch } from 'react-redux'
-import { getApiConfiguration } from './store/homeslice';
+import { getApiConfiguration, getGenres } from './store/homeslice';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Header from './components/header/header.jsx'
@@ -17,10 +17,11 @@ import Trending from './pages/home/Trending/Trending.jsx';
 const App = () => {
 
   const dispatch = useDispatch()
-  // const { url } = useSelector((state) => state.home)
+  const { url } = useSelector((state) => state.home)
 
   useEffect(() => {
     fetchApiConfig();
+    genercall();
   }, []);
 
   const fetchApiConfig = () => {
@@ -39,6 +40,27 @@ const App = () => {
 
       });
   };
+
+
+  const genercall = async () => {
+    let promises = [];
+    let endPoints = ["tv", "movie"];
+    let allGenres = {};
+    endPoints.forEach((url) => {
+      promises.push(fetchDataFromApi(`/genre/${url}/list`)); // Modified line
+    });
+    const data = await Promise.all(promises);
+    // console.log(data);
+    data.map(({ genres }) => {
+      return genres.map((item) => {
+        allGenres[item.id] = item
+      })
+    });
+    dispatch(getGenres(allGenres)) // store all genres ids in genresstore
+    // console.log("all id of genres : ", allGenres);
+  }
+
+
 
   return (
     <BrowserRouter>

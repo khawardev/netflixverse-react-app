@@ -1,32 +1,31 @@
 /* eslint-disable no-unused-vars */
 // import './Trending.js';
-import './Trending.scss';
-import Extraction from '../../../assets/Extraction.png';
 import Switchtabs from '../../../components/switchTabs/Switchtabs';
 import { useState } from 'react';
 import useFetch from '../../../hooks/Usefetch';
 import Carousel from '../../../components/carousel/Carousel';
-const Trending = () => {
+const Popular = () => {
 
-    const [endpoint, setEndpoint] = useState("day")
-    const { data, loading } = useFetch(`/trending/all/${endpoint}`)
-    console.log("Trending data: ", data);
+    const [endpoint, setEndpoint] = useState("movie")
+    const { data, loading } = useFetch(`/${endpoint}/popular`)
+    console.log("Popular: ", data);
+
 
 
 
     const onTabchange = (tab) => {
-        setEndpoint(tab === "Day" ? "day" : "week")
+        setEndpoint(tab === "Movies" ? "movie" : "tv")
     }
     return (
         <>
 
             <div className="container  py-4" >
                 <div className="mb-md-5 mb-4   d-flex align-items-center justify-content-between mx-2">
-                    <span className=' italic-bold bolder'>TRENDING</span>
-                    <Switchtabs data={['Day', 'Week']} onTabchange={onTabchange} />
+                    <span className=' italic-bold bolder'>POPULAR</span>
+                    <Switchtabs data={['Movies', 'Tv Shows']} onTabchange={onTabchange} />
                 </div>
                 <div>
-                    <Carousel data={data?.results} Loading={loading} />
+                    <Carousel endpoint={endpoint} data={data?.results} Loading={loading} />
                 </div>
             </div>
 
@@ -42,4 +41,4 @@ const Trending = () => {
 };
 
 
-export default Trending
+export default Popular

@@ -1,0 +1,14 @@
+.genres {
+  display: flex;
+  gap: 5px;
+  .genre {
+    background: linear-gradient(98.37deg, #da0101 0.99%, #a30000 100%);
+    padding: 2px 7px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 900;
+    border-radius: 30px;
+    color: white;
+    white-space: nowrap;
+  }
+}
