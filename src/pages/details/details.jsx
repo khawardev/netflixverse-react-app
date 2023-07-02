@@ -16,10 +16,10 @@ const details = () => {
 
 
   const matchingTrailers = data?.results?.filter(
-    result => result.name === 'Official Trailer'
+    result => result.name === 'Official Trailer' || result.name === 'Final Trailer' || result.name === 'Trailer' || result.name === 'Official Trailer 2'
   );
 
- 
+
 
 
   return (
