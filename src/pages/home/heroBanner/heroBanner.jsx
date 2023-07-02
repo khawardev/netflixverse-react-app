@@ -24,12 +24,10 @@ const HeroBanner = () => {
       Navigate(`/search/${query}`)
     }
   }
-
   useEffect(() => {
     const Bg = url?.backdrop + data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
     SetBackground(Bg);
   }, [data]);
-
 
 
   return (
@@ -55,8 +53,19 @@ const HeroBanner = () => {
                 </p>
 
                 <div className="banner-search">
-                  <input type="text" placeholder="Search for movie or tv series" className="search-input" />
-                  <button className="search-button">Search</button>
+                  <input
+                    type="text"
+                    placeholder="Search for movie or TV series"
+                    className="search-input"
+                    onChange={(event) => setquery(event.target.value)}
+                    onKeyUp={searchQueryHandler}
+                  />
+
+                  <button type="submit" className="search-button">
+                    Search
+                  </button>
+
+
                 </div>
               </div>
             </div>

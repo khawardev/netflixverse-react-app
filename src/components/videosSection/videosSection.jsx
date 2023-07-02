@@ -5,11 +5,12 @@ import "./videosSection.scss";
 import PlayButton from "../playButton/playButton";
 import VideoPopup from "../videoPopup/videoPopup.jsx";
 import Img from "../../components/lazyLoadImage/LazyloadImage.jsx";
+import { useRef } from "react";
 
 const VideosSection = ({ data, loading }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
-
+    const [thumbnail, setthumbnail] = useState('');
     const loadingSkeleton = () => {
         return (
             <div className="skItem">
@@ -20,6 +21,9 @@ const VideosSection = ({ data, loading }) => {
         );
     };
 
+    const carouselContainer = useRef(null);
+
+
     return (
         <div className="videosSection container mt-4">
             <div className="sectionHeading italic-bold bolder text-uppercase ">Official Videos</div>
@@ -27,26 +31,47 @@ const VideosSection = ({ data, loading }) => {
                 <>
                     {!!data && (
                         <>
-                            <div className="videos">
-                                {data?.results && data.results.map((video) => (
-                                    <div key={video?.id}>
-                                        <div className="videoItem "
-                                            onClick={() => {
-                                                setVideoId(video?.key)
-                                                setShow(true)
-                                            }}
-                                        >
-                                            <div className="videoThumbnail">
-                                                <img src={`https://img.youtube.com/vi/${video?.key}/maxresdefault.jpg`} alt="" />
-                                            </div>
-                                            {/* <PlayButton /> */}
 
-                                            <div className="videoTitle  " >
-                                                {video.name}
+                            <div className="videos">
+
+                                {data?.results && data.results.map((video) => (
+                                    video?.key && (
+
+                                        <div key={video.id}>
+                                            <div className="videoItem" onClick={() => {
+                                                setVideoId(video.key);
+                                                setShow(true);
+                                            }}>
+                                                <div className="videoThumbnail">
+                                                    <img
+
+                                                        src={`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`}
+                                                        alt=""
+                                                        onLoad={(e) => {
+                                                            const img = e.target;
+                                                            if (img.naturalWidth >= 1280 && img.naturalHeight >= 720) {
+                                                                img.style.display = 'block';
+                                                            } else {
+                                                                img.style.display = 'none';
+                                                                video.name = ' ';
+                                                            }
+                                                        }}
+                                                    />
+                                                    {video?.name && (
+                                                        <div className={`videoTitle ${video.name ? '' : 'hidden'}`}>
+                                                            {video.name}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+
                                             </div>
                                         </div>
-                                    </div>
+                                    )
                                 ))}
+
+
+
 
                             </div>
                         </>

@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import './detailsBanner.scss';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -20,6 +20,26 @@ const detailsBanner = ({ video, crew }) => {
 
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
+
+    const [filteredVideoId, setFilteredVideoId] = useState(null);
+
+
+    useEffect(() => {
+        const sortedVideos = video.sort((a, b) => {
+            const dateA = new Date(a.published_at);
+            const dateB = new Date(b.published_at);
+            return dateA.getMonth() - dateB.getMonth();
+        });
+
+        const firstVideo = sortedVideos[0];
+        if (firstVideo) {
+            setFilteredVideoId(firstVideo.key);
+        } else {
+            setFilteredVideoId(null);
+        }
+    }, [video]);
+
+    console.log("NEW ID IS ", filteredVideoId);
 
 
     const { mediaType, id } = useParams();
@@ -76,7 +96,7 @@ const detailsBanner = ({ video, crew }) => {
             {!loading ? (
                 <>
                     {!!data && (
-                        <React.Fragment>
+                        <>
                             <div className="backdrop-img">
                                 <img src={url.poster + data.backdrop_path} className='banner-image ' />
                             </div>
@@ -109,7 +129,7 @@ const detailsBanner = ({ video, crew }) => {
                                             <p style={{ fontWeight: '500' }}>{data.overview}</p>
 
                                             <div className='d-flex pt-3 pb-4'>
-                                                <div className='button-background-move ' onClick={() => { setShow(true), setVideoId(video.key) }} style={{ padding: '0rem 1rem' }}>
+                                                <div className='button-background-move ' onClick={() => { setShow(true), setVideoId(filteredVideoId) }} style={{ padding: '0rem 1rem' }}>
                                                     <div className='playBut d-flex align-items-center'>
                                                         <div style={{ zIndex: '1' }}>
                                                             <PlayButton />
@@ -244,7 +264,7 @@ const detailsBanner = ({ video, crew }) => {
                             </div>
                             <VideoPopup show={show} setShow={setShow} videoId={videoId} setVideoId={setVideoId} />
 
-                        </React.Fragment>
+                        </>
                     )}
 
                 </>

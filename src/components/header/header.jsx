@@ -101,8 +101,6 @@ const Header = () => {
                                         placeholder="search movies & tv series"
                                         onChange={(event) => setQuery(event.target.value)}
                                         onKeyUp={searchQueryHandler}
-
-
                                     />
                                 ) : null}
                                 {searchVisible ? (

@@ -49,10 +49,10 @@ const Carousel = ({ title, data, Loading, endpoint }) => {
         )
     }
     return (
-        <div className='container carousel py-md-0 py-3' >
+        <div className='container carousel  ' >
 
             {title && (
-                <div className=" sectionHeading italic-bold bolder my-4 text-uppercase">{title}</div>
+                <div className=" sectionHeading italic-bold bolder mt-4 text-uppercase">{title}</div>
             )}
             <BsFillArrowLeftCircleFill className='carouselLeftNav arrow' onClick={() => navigation("left")} />
             <BsFillArrowRightCircleFill className='carouselRighttNav arrow' onClick={() => navigation("right")} />
