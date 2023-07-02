@@ -21,8 +21,8 @@ const VideosSection = ({ data, loading }) => {
     };
 
     return (
-        <div className="videosSection container">
-            <div className="sectionHeading italic-bold bolder">Official Videos</div>
+        <div className="videosSection container mt-4">
+            <div className="sectionHeading italic-bold bolder text-uppercase ">Official Videos</div>
             {!loading ? (
                 <>
                     {!!data && (

@@ -15,7 +15,7 @@ import CircleRating from '../circleRating/circleRating.jsx';
 import Genres from '../Genres/Genres';
 
 
-const Carousel = ({ data, Loading, endpoint }) => {
+const Carousel = ({ title, data, Loading, endpoint }) => {
 
     console.log("Endpoint from top rated and popular", endpoint);
 
@@ -49,7 +49,11 @@ const Carousel = ({ data, Loading, endpoint }) => {
         )
     }
     return (
-        <div className='carousel py-md-0 py-3' >
+        <div className='container carousel py-md-0 py-3' >
+
+            {title && (
+                <div className=" sectionHeading italic-bold bolder my-4 text-uppercase">{title}</div>
+            )}
             <BsFillArrowLeftCircleFill className='carouselLeftNav arrow' onClick={() => navigation("left")} />
             <BsFillArrowRightCircleFill className='carouselRighttNav arrow' onClick={() => navigation("right")} />
             {!Loading ? (

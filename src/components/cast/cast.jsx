@@ -23,7 +23,7 @@ const Cast = ({ data, loading }) => {
     return (
 
         <div className="container castSection">
-            <div className="sectionHeading italic-bold bolder">Top Cast</div>
+            <div className="sectionHeading my-4 italic-bold bolder text-uppercase">Top Cast</div>
             {!loading ? (
                 <>
                     <div className="listItems ">
@@ -37,7 +37,7 @@ const Cast = ({ data, loading }) => {
                                     <div className="name mt-md-0 mt-3">
                                         {item.name}
                                     </div>
-                                    <div className="character mb-4">
+                                    <div className="character mb-md-4">
                                         {item.character}
                                     </div>
                                 </div>
