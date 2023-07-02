@@ -2,7 +2,6 @@
 @import "../../mixins.scss";
 .castSection {
   position: relative;
-  margin-bottom: 50px;
   .sectionHeading {
     font-size: 24px;
     color: white;
@@ -61,7 +60,7 @@
         }
       }
       .character {
-        font-weight: 500;
+        font-weight: 600;
 
         font-style: italic;
         font-size: 14px;
@@ -112,4 +111,13 @@
       }
     }
   }
+}
+.opacity-layer {
+  width: 200px;
+  height: 270px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--black) 90%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }

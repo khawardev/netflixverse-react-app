@@ -21,27 +21,31 @@ const Cast = ({ data, loading }) => {
         );
     };
     return (
+
         <div className="container castSection">
             <div className="sectionHeading italic-bold bolder">Top Cast</div>
             {!loading ? (
-                <div className="listItems">
-                    {data?.map((item) => {
-                        let Imgurl = item?.profile_path ? item?.profile_path : avatar;
-                        return (
-                            <div key={item.id} className="listItem">
-                                <div className="profileImg">
-                                    <Img src={Imgurl == avatar ? avatar : url?.profile + Imgurl} className={Imgurl === avatar ? "avatarClass" : ""} alt="" />
+                <>
+                    <div className="listItems ">
+                        {data?.map((item) => {
+                            let Imgurl = item?.profile_path ? item?.profile_path : avatar;
+                            return (
+                                <div key={item.id} className="listItem">
+                                    <div className="profileImg ">
+                                        <Img src={Imgurl == avatar ? avatar : url?.profile + Imgurl} className={Imgurl === avatar ? "avatarClass" : ""} alt="" />
+                                    </div>
+                                    <div className="name mt-md-0 mt-3">
+                                        {item.name}
+                                    </div>
+                                    <div className="character mb-4">
+                                        {item.character}
+                                    </div>
                                 </div>
-                                <div className="name mt-md-0 mt-3">
-                                    {item.name}
-                                </div>
-                                <div className="character mb-4">
-                                    {item.character}
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
+                            )
+                        })}
+                    </div>
+
+                </>
             ) : (
                 <div className="castSkeleton">
                     {skeleton()}
