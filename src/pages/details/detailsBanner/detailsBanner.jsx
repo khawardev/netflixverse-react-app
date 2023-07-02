@@ -12,7 +12,15 @@ import CircleRating from "../../../components/circleRating/circleRating";
 import Img from "../../../components/lazyLoadImage/LazyloadImage.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
 import PlayButton from '../../../components/playButton/playButton';
+import VideoPopup from '../../../components/videoPopup/videoPopup';
+
+
+
 const detailsBanner = ({ video, crew }) => {
+
+    const [show, setShow] = useState(false);
+    const [videoId, setVideoId] = useState(null);
+
 
     const { mediaType, id } = useParams();
     const { data, loading } = useFetch(`/${mediaType}/${id}`)
@@ -31,7 +39,7 @@ const detailsBanner = ({ video, crew }) => {
         return (
             <div className="detailsBannerSkeleton">
                 <div className="left skeleton"></div>
-                <div className="right">
+                <div className="right px-2">
                     <div className="row skeleton"></div>
                     <div className="row skeleton"></div>
                     <div className="row skeleton"></div>
@@ -39,6 +47,10 @@ const detailsBanner = ({ video, crew }) => {
                     <div className="row skeleton"></div>
                     <div className="row skeleton"></div>
                     <div className="row skeleton"></div>
+                    <div className="row skeleton"></div>
+                    <div className="row skeleton"></div>
+                    <div className="row skeleton"></div>
+
                 </div>
             </div>
 
@@ -53,26 +65,27 @@ const detailsBanner = ({ video, crew }) => {
     const runtime = data?.runtime || data?.episode_run_time || 0;
     const hours = Math.floor(runtime / 60);
     const minutes = runtime % 60;
+
+
+    const images = data?.seasons?.map((d) => url?.poster + d?.poster_path) || [];
+
+    console.log(images);
+
     return (
         <div className="detailsBanner container">
             {!loading ? (
                 <>
-
                     {!!data && (
-
-
-
                         <React.Fragment>
-
                             <div className="backdrop-img">
-                                <img src={url.poster + data.backdrop_path} className='banner-image ' alt="Movie Poster" />
+                                <img src={url.poster + data.backdrop_path} className='banner-image ' />
                             </div>
                             <div className="opacity-layer"></div>
                             <div className="container-md container-fluid px-0">
                                 <div className="row italic-bold">
                                     <div className="col-md-4 col-12 py-md-0 py-3">
                                         <div className="poster">
-                                            <Img src={url.poster + data.poster_path} alt="Movie Poster" />
+                                            <Img src={url.poster + data.poster_path} />
                                         </div>
                                     </div>
                                     <div className="col-md-8 col-12 py-md-0 py-3">
@@ -95,8 +108,8 @@ const detailsBanner = ({ video, crew }) => {
 
                                             <p style={{ fontWeight: '500' }}>{data.overview}</p>
 
-                                            <div className='d-flex pt-2 pb-4'>
-                                                <div className='button-background-move ' style={{ padding: '0rem 1rem' }}>
+                                            <div className='d-flex pt-3 pb-4'>
+                                                <div className='button-background-move ' onClick={() => { setShow(true), setVideoId(video.key) }} style={{ padding: '0rem 1rem' }}>
                                                     <div className='playBut d-flex align-items-center'>
                                                         <div style={{ zIndex: '1' }}>
                                                             <PlayButton />
@@ -106,57 +119,51 @@ const detailsBanner = ({ video, crew }) => {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div className='d-flex gap-md-5 gap-4' >
 
-                                            {/* <div className=" py-2">
-                                                <button className='playBut  detail-button '>
-                                                    <div className='d-flex align-items-center'>
-                                                        <PlayButton />
-                                                        <span>
-                                                            Watch Trailer
-                                                        </span>
-                                                    </div>
-
-                                                </button>
-
-                                            </div> */}
-                                            <div className='d-md-flex gap-md-5' >
-
-                                                <div className='d-flex gap-5' >
-
-                                                    {data?.status && (
+                                                {data?.status && (
+                                                    <>
                                                         <div className='d-md-flex gap-3 '>
-                                                            <p className='bolder'>Status : </p>
+                                                            <p className='bolder'>Status: </p>
                                                             <p className='details-tagline ' style={{ fontWeight: '500', fontSize: '18px' }}>{data.status} </p>
                                                         </div>
-                                                    )}
+                                                    </>
+                                                )}
 
-                                                    {data?.release_date && (
+                                                {data?.release_date && (
+                                                    <>
                                                         <div className='d-md-flex gap-3 '>
-                                                            <p className='bolder '>Release date : </p>
+                                                            <p className='bolder '>Release date: </p>
                                                             <p className='details-tagline ' style={{ fontWeight: '500', fontSize: '18px' }}>{formattedDate} </p>
                                                         </div>
-                                                    )}
-
-                                                </div>
-                                                <div >
-                                                    {data?.runtime && (
-                                                        <div className='d-flex gap-3'>
+                                                    </>
+                                                )}
+                                                {data?.runtime && (
+                                                    <>
+                                                        <div className='d-md-flex gap-3'>
                                                             <p className='bolder'>Runtime: </p>
                                                             <p className='details-tagline' style={{ fontWeight: '500', fontSize: '18px' }}>{`${hours}h ${minutes}m`}</p>
                                                         </div>
-                                                    )}
+                                                    </>
 
 
-                                                </div>
+                                                )}
+                                                {data?.number_of_seasons && (
+                                                    <>
+                                                        <div className='d-md-flex gap-3'>
+                                                            <p className='bolder'>Number of Season: </p>
+                                                            <p className='details-tagline' style={{ fontWeight: '500', fontSize: '18px' }}>{data?.number_of_seasons}</p>
+                                                        </div>
+                                                    </>
+                                                )}
                                             </div>
-
-
+                                            <hr className='mb-4' />
                                             <div className='directors ' >
 
                                                 {director?.length > 0 && (
                                                     <>
-                                                        <hr />
-                                                        <div className='d-md-flex gap-3 '>
+
+                                                        <div className='d-flex gap-3 '>
                                                             <p className='bolder'>Director: </p>
                                                             <p className='details-tagline' style={{ fontWeight: '500', fontSize: '18px' }}>
                                                                 {director.map((d, index) => (
@@ -167,7 +174,7 @@ const detailsBanner = ({ video, crew }) => {
                                                                 ))}
                                                             </p>
                                                         </div>
-
+                                                        <hr className='mb-4' />
                                                     </>
                                                 )}
 
@@ -176,8 +183,8 @@ const detailsBanner = ({ video, crew }) => {
                                                 {writer?.length > 0 && (
 
                                                     <>
-                                                        <hr />
-                                                        <div className='d-md-flex gap-3'>
+
+                                                        <div className='d-flex gap-3'>
 
                                                             <p className='bolder'>Writer: </p>
                                                             <p className='details-tagline' style={{ fontWeight: '500', fontSize: '18px' }}>
@@ -189,37 +196,76 @@ const detailsBanner = ({ video, crew }) => {
                                                                 ))}
                                                             </p>
                                                         </div>
+                                                        <hr className='mb-4' />
                                                     </>
 
                                                 )}
-
                                             </div>
-                                            {/* <div className="cast">
-                                                <h3>Cast</h3>
-                                                <div className="cast-images">
-                                                    <img src={url.cast1} alt="Cast Member 1" />
-                                                    <img src={url.cast2} alt="Cast Member 2" />
-                                                    <img src={url.cast3} alt="Cast Member 3" />
-                                                </div>
-                                                <div className="cast-names">
-                                                    <p>Cast Member 1</p>
-                                                    <p>Cast Member 2</p>
-                                                    <p>Cast Member 3</p>
-                                                </div>
-                                            </div> */}
+                                            <div className='created_by ' >
+                                                {data?.created_by && (
+                                                    <>
+                                                        <div className='d-flex gap-3 '>
+                                                            <p className='bolder'>Created by: </p>
+                                                            <p className='details-tagline' style={{ fontWeight: '500', fontSize: '18px' }}>
+                                                                {data?.created_by.map((d, index) => (
+                                                                    <span key={index}>
+                                                                        {d.name}
+                                                                        {index !== data?.created_by.length - 1 && ', '}
+                                                                    </span>
+                                                                ))}
+                                                            </p>
+                                                        </div>
+                                                        <hr className='mb-4' />
+                                                    </>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
+                                    {images.length > 1 && (
+                                        <div className="container-fluid py-md-5 py-2">
+                                            <div className="row p-0">
+
+                                                {images.map((image, index) => (
+
+
+                                                    <div className="col-md-3 col-6 p-l-0 pr-0 my-2" key={index}>
+                                                        {image && (
+                                                            <>
+                                                                <img src={image} style={{ width: '100%', borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }} alt="Movie Poster" />
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
 
-
                             </div>
+                            <VideoPopup show={show} setShow={setShow} videoId={videoId} setVideoId={setVideoId} />
 
                         </React.Fragment>
                     )}
 
                 </>
             ) : (
-                skload()
+                <div className="detailsBannerSkeleton">
+                    <div className="left skeleton"></div>
+                    <div className="right px-2">
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+                        <div className="row skeleton"></div>
+
+                    </div>
+                </div>
+
             )}
         </div>
     );

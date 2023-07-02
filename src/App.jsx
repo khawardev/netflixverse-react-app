@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchDataFromApi } from './utils/api';
 import { useSelector, useDispatch } from 'react-redux'
 import { getApiConfiguration, getGenres } from './store/homeslice';
@@ -59,7 +59,6 @@ const App = () => {
     dispatch(getGenres(allGenres)) // store all genres ids in genresstore
     // console.log("all id of genres : ", allGenres);
   }
-
 
 
   return (

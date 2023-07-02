@@ -15,7 +15,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BiSearch, BiX } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { useRef } from 'react';
-
 const Header = () => {
 
     const Navigate = useNavigate();
@@ -27,9 +26,8 @@ const Header = () => {
     const [searchVisible, setSearchVisible] = useState(false);
     const [query, setQuery] = useState('');
     const location = useLocation();
-
-    useEffect(() => {   // to scroll to top after navigating to page
-        window.scrollTo(0, 0);
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll window to top
     }, [location]);
 
 

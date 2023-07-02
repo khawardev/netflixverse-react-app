@@ -3,11 +3,9 @@
 .detailsBanner {
   width: 100%;
   padding-top: 100px;
-  margin-bottom: 50px;
   @include md {
-    margin-bottom: 0;
+    margin-bottom: 30px;
     padding-top: 120px;
-    min-height: 700px;
   }
   .banner-image {
     object-fit: cover;
@@ -190,6 +188,8 @@
     .contentWrapper {
       display: flex;
       gap: 50px;
+      height: 100vh;
+
     }
     .left {
       flex-shrink: 0;
@@ -198,7 +198,7 @@
       border-radius: 12px;
       aspect-ratio: 1/1.5;
       @include md {
-        max-width: 350px;
+        width: 350px;
       }
     }
     .right {
