@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import './detailsBanner.scss';
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import useFetch from "../../../hooks/Usefetch";
@@ -17,6 +17,7 @@ import VideoPopup from '../../../components/videoPopup/videoPopup';
 
 
 const detailsBanner = ({ video, crew }) => {
+ 
 
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
@@ -87,7 +88,6 @@ const detailsBanner = ({ video, crew }) => {
 
     const images = data?.seasons?.map((d) => url?.poster + d?.poster_path) || [];
 
-    console.log(images);
 
     return (
         <div className="detailsBanner container">
@@ -130,7 +130,7 @@ const detailsBanner = ({ video, crew }) => {
                                                 <div className='button-background-move ' onClick={() => { setShow(true), setVideoId(filteredVideoId) }} style={{ padding: '0rem 1rem' }}>
                                                     <div className='playBut d-flex align-items-center'>
                                                         <div style={{ zIndex: '1' }}>
-                                                            <PlayButton />
+                                                            <PlayButton width={"40px"} height={"40px"} />
                                                         </div>
                                                         <span className="button-text" style={{ fontSize: '18px', fontWeight: 'bold' }} >Watch Trailer</span>
                                                         <div className="fill-container"></div>
@@ -242,10 +242,7 @@ const detailsBanner = ({ video, crew }) => {
                                     {images.length > 1 && (
                                         <div className="container-fluid py-md-5 py-2">
                                             <div className="row p-0">
-
                                                 {images.map((image, index) => (
-
-
                                                     <div className="col-md-3 col-6 p-l-0 pr-0 my-2" key={index}>
                                                         {image && (
                                                             <>

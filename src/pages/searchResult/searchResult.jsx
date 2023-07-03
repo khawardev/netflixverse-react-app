@@ -52,7 +52,7 @@ const searchResult = () => {
         <>
           {data?.results?.length > 0 ? (
             <>
-              <div className="pageTitle bolder" style={{fontStyle:'italic'}}>
+              <div className="pageTitle bolder" style={{ fontStyle: 'italic' }}>
                 {`Search ${data?.totalresults > 1 ? "results" : "result"
                   } of '${query}'`}
               </div>
@@ -71,7 +71,7 @@ const searchResult = () => {
 
             </>
           ) : (
-            <span className="resultNotFound bolder" style={{fontStyle:'italic'}}>Sorry, Results not found!</span>
+            <span className="resultNotFound bolder" style={{ fontStyle: 'italic', color: 'white' }} >Sorry, Results not found!</span>
           )}
         </>
       )}

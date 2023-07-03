@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getApiConfiguration, getGenres } from './store/homeslice';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-
+import { useLocation } from 'react-router-dom';
 import Header from './components/header/header.jsx'
 import Footer from './components/footer/footer'
 import Home from './pages/home/home';
@@ -15,6 +15,7 @@ import SearchResult from './pages/searchResult/searchResult'
 import Explore from './pages/explore/explore'
 import PageNotFound from './pages/404/pageNotFound'
 import Trending from './pages/home/Trending/Trending.jsx';
+import ScrollToTop from './components/scrollToTop.js';
 
 const App = () => {
 
@@ -65,8 +66,8 @@ const App = () => {
 
   return (
     <BrowserRouter>
-
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/:mediaType/:id' element={<Details />} />

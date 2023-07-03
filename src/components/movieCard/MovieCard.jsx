@@ -12,11 +12,12 @@ import Img from "../lazyLoadImage/LazyloadImage";
 import PosterFallback from "../../assets/no-poster.png";
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
+    const sortedArray = data.sort((a, b) => {
+        return new Date(b.release_date) - new Date(a.release_date);
+    });
     const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
-    const posterUrl = data.poster_path
-        ? url.poster + data.poster_path
-        : PosterFallback;
+    const posterUrl = data.poster_path ? url.poster + data.poster_path : PosterFallback;
     return (
         <div
             className="movieCard"
@@ -33,9 +34,11 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
                     </React.Fragment>
                 )} */}
             </div>
+
             <div className="textBlock">
+
                 <span className="title bolder" style={{ fontStyle: 'italic' }}>{data.title || data.name}</span>
-                <span className="date bolder" style={{ fontStyle: 'italic' }}>
+                <span className="date bold" style={{ fontStyle: 'italic' }}>
                     {dayjs(data.release_date).format("MMM D, YYYY")}
                 </span>
             </div>

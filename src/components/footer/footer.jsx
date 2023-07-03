@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
 import './footer.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

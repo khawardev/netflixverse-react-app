@@ -25,23 +25,24 @@ const Header = () => {
     const [isColorChanged, setIsColorChanged] = useState(false);
     const [searchVisible, setSearchVisible] = useState(false);
     const [query, setQuery] = useState('');
-    const location = useLocation();
-    useEffect(() => {
-        window.scrollTo(0, 0); // Scroll window to top
-    }, [location]);
+
+    // const location = useLocation();
+    // useEffect(() => {
+    //     window.scrollTo(0, 0); // Scroll window to top
+    // }, [location]);
 
 
 
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollPos(window.scrollY);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         setScrollPos(window.scrollY);
+    //     };
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, []);
 
     const handleMenuItemClick = () => {    // open menu bar list in mobile view
         setClick(false); // Reset click state when navigating to a new page
@@ -92,7 +93,7 @@ const Header = () => {
                                 <span onClick={() => { Navigate('/search/hello'); handleMenuItemClick(); }}>Tv Series</span>
                             </li>
 
-                            <li className="d-flex align-items-center justify-content-center gap-3 py-3 py-sm-0">
+                            <li className="d-flex align-items-center justify-content-center gap-3 py-3 py-xl-0">
                                 {searchVisible ? (
                                     <input
                                         type="text"
