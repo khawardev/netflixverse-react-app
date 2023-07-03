@@ -15,10 +15,15 @@ const details = () => {
   const { data: credits, loading: creditsLoading } = useFetch(`/${mediaType}/${id}/credits`);
 
 
-  const matchingTrailers = data?.results?.filter(
-    result => result.name === 'Official Trailer' || result.name === 'Final Trailer' || result.name === 'Trailer' || result.name === 'Official Trailer 2'
+  // const matchingTrailers = data?.results?.filter(
+  //   result => result.name === 'Official Trailer' || result.name === 'Final Trailer' || result.name === 'Trailer' || result.name === 'Official Trailer 2'
+  // );
+  const matchingTrailers = data?.results?.filter(result =>
+    result.name.includes("Trailer")
   );
 
+
+  console.log("Dates returning from matching trailer : ", matchingTrailers);
 
 
 

@@ -22,8 +22,6 @@ const detailsBanner = ({ video, crew }) => {
     const [videoId, setVideoId] = useState(null);
 
     const [filteredVideoId, setFilteredVideoId] = useState(null);
-
-
     useEffect(() => {
         const sortedVideos = video.sort((a, b) => {
             const dateA = new Date(a.published_at);

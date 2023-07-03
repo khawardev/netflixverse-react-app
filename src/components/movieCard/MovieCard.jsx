@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
 import dayjs from "dayjs";
@@ -6,8 +7,8 @@ import { useSelector } from "react-redux";
 
 import "./MovieCard.scss";
 import Img from "../lazyLoadImage/LazyloadImage";
-import CircleRating from "../circleRating/CircleRating";
-import Genres from "../genres/Genres";
+// import CircleRating from "../circleRating/CircleRating";
+// import Genres from "../genres/Genres";
 import PosterFallback from "../../assets/no-poster.png";
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
@@ -25,16 +26,16 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
         >
             <div className="posterBlock">
                 <Img className="posterImg" src={posterUrl} />
-                {!fromSearch && (
+                {/* {!fromSearch && (
                     <React.Fragment>
                         <CircleRating rating={data.vote_average.toFixed(1)} />
                         <Genres data={data.genre_ids.slice(0, 2)} />
                     </React.Fragment>
-                )}
+                )} */}
             </div>
             <div className="textBlock">
-                <span className="title bolder" style={{fontStyle:'italic'}}>{data.title || data.name}</span>
-                <span className="date bolder" style={{fontStyle:'italic'}}>
+                <span className="title bolder" style={{ fontStyle: 'italic' }}>{data.title || data.name}</span>
+                <span className="date bolder" style={{ fontStyle: 'italic' }}>
                     {dayjs(data.release_date).format("MMM D, YYYY")}
                 </span>
             </div>
