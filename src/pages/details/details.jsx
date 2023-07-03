@@ -25,8 +25,8 @@ const details = () => {
 
   return (
     <>
-      <SkLoad />
-      {/* {data?.results && (
+      {/* <SkLoad /> */}
+      {data?.results && (
         <DetailsBanner video={matchingTrailers} crew={credits?.crew} />
       )}
 
@@ -41,7 +41,7 @@ const details = () => {
           <Recommendation mediaType={mediaType} id={id} />
           <Similar mediaType={mediaType} id={id} />
         </>
-      )} */}
+      )}
     </>
   );
 
