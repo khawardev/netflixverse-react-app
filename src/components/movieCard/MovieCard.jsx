@@ -12,9 +12,9 @@ import Img from "../lazyLoadImage/LazyloadImage";
 import PosterFallback from "../../assets/no-poster.png";
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
-    const sortedArray = data.sort((a, b) => {
-        return new Date(b.release_date) - new Date(a.release_date);
-    });
+    // const sortedArray = data.sort((a, b) => {
+    //     return new Date(b.release_date) - new Date(a.release_date);
+    // });
     const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
     const posterUrl = data.poster_path ? url.poster + data.poster_path : PosterFallback;

@@ -99,6 +99,7 @@
       padding: 0;
     }
     .carouselItem {
+      
       width: 155px;
       cursor: pointer;
       @include md {
@@ -189,3 +190,5 @@
   font-weight: bolder;
   font-style: italic;
 }
+
+

@@ -31,18 +31,19 @@ const Header = () => {
     //     window.scrollTo(0, 0); // Scroll window to top
     // }, [location]);
 
-
-
-
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         setScrollPos(window.scrollY);
-    //     };
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, []);
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll window to top
+    }, [location]);
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollPos(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleMenuItemClick = () => {    // open menu bar list in mobile view
         setClick(false); // Reset click state when navigating to a new page

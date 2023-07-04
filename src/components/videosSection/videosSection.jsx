@@ -6,6 +6,7 @@ import PlayButton from "../playButton/playButton";
 import VideoPopup from "../videoPopup/videoPopup.jsx";
 import Img from "../../components/lazyLoadImage/LazyloadImage.jsx";
 import { useRef } from "react";
+import PosterFallback from "../../assets/no-poster.png";
 
 const VideosSection = ({ data, loading }) => {
     const [show, setShow] = useState(false);
@@ -20,8 +21,6 @@ const VideosSection = ({ data, loading }) => {
             </div>
         );
     };
-
-    const carouselContainer = useRef(null);
 
 
     return (
@@ -40,43 +39,44 @@ const VideosSection = ({ data, loading }) => {
 
                                         <div className="videos">
 
-                                            {data?.results && data.results.map((video) => (
-                                                video?.key && (
+                                            {data?.results && data.results.map((video) => (video?.key && (
 
-                                                    <div key={video.id}>
-                                                        <div className="videoItem" onClick={() => {
-                                                            setVideoId(video.key);
-                                                            setShow(true);
-                                                        }}>
-                                                            <div className="videoThumbnail position-relative playBut">
-                                                                <img
+                                                <div key={video.id}>
 
-                                                                    src={`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`}
-                                                                    alt=""
-                                                                    onLoad={(e) => {
-                                                                        const img = e.target;
-                                                                        if (img.naturalWidth >= 1280 && img.naturalHeight >= 720) {
-                                                                            img.style.display = 'block';
-                                                                        } else {
-                                                                            img.style.display = 'none';
-                                                                            video.name = ' ';
-                                                                        }
-                                                                    }}
-                                                                />
-                                                                {video?.name && (
-                                                                    <div className={`videoTitle ${video.name ? '' : 'hidden'}`}>
-                                                                        {video.name}
-                                                                    </div>
-                                                                )}
-                                                                <div className="video-section-playButton " >
-                                                                    <PlayButton width={"70px"} height={"70px"} />
+                                                    <div className="videoItem" onClick={() => {
+                                                        setVideoId(video.key);
+                                                        setShow(true);
+                                                    }}>
+                                                        <div className="videoThumbnail position-relative playBut">
+                                                            <img
+
+                                                                src={`https://img.youtube.com/vi/${video?.key}/maxresdefault.jpg` }
+
+                                                                alt=""
+                                                                onLoad={(e) => {
+                                                                    const img = e.target;
+                                                                    if (img.naturalWidth >= 1280 && img.naturalHeight >= 720) {
+                                                                        img.style.display = 'block';
+                                                                    } else {
+                                                                        img.style.display = 'none';
+                                                                        video.name = ' ';
+                                                                    }
+                                                                }}
+                                                            />
+                                                            {video?.name && (
+                                                                <div className={`videoTitle ${video.name ? '' : 'hidden'}`}>
+                                                                    {video.name}
                                                                 </div>
+                                                            )}
+                                                            <div className="video-section-playButton " >
+                                                                <PlayButton width={"90px"} height={"90px"} />
                                                             </div>
-
-
                                                         </div>
+
+
                                                     </div>
-                                                )
+                                                </div>
+                                            )
                                             ))}
 
 
