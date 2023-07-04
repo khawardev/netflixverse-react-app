@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from 'react-redux';
-import './Genres.scss';
+import './genres.scss';
 const Genres = ({ data, paddingx, fontSize }) => {
     const { genres } = useSelector((state) => state.home)
     // console.log("Genres id Data from carousel ", data);
