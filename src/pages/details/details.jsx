@@ -26,7 +26,7 @@ const details = () => {
     setShow(true);
     const timeout = setTimeout(() => {
       setShow(false);
-    }, 1000);
+    }, 1300);
     return () => clearTimeout(timeout);
   }, [location]);
 
@@ -43,7 +43,7 @@ const details = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowDetails2(true);
-    }, 1300);
+    }, 1600);
 
     return () => clearTimeout(timeout);
   }, [location]);
