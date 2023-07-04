@@ -5,7 +5,7 @@ import DetailsBanner from './detailsBanner/detailsBanner.jsx'
 import { useParams, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/Usefetch.jsx';
 import Cast from '../../components/cast/cast.jsx';
-import VideosSection from '../../components/videosSection/VideosSection.jsx';
+import VideosSection from '../../components/videosSection/videosSection.jsx';
 import Similar from '../../components/carousels-ll/Similar.jsx';
 import Recommendation from '../../components/carousels-ll/Recomendation.jsx';
 import SkLoad from '../../components/skLoad/SkLoad.jsx';
