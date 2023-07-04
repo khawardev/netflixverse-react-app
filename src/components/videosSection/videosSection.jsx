@@ -2,9 +2,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./videosSection.scss";
-import PlayButton from "../playButton/PlayButton";
-import VideoPopup from "../videoPopup/VideoPopup.jsx";
-import Img from "../lazyLoadImage/LazyloadImage.jsx";
+import PlayButton from "../playButton/playButton";
+import VideoPopup from "../videoPopup/videoPopup.jsx";
+import Img from "../lazyLoadImage/lazyloadImage.jsx";
 import { useRef } from "react";
 import PosterFallback from "../../assets/no-poster.png";
 

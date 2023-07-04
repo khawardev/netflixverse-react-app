@@ -9,10 +9,10 @@ import dayjs from "dayjs";
 import useFetch from "../../../hooks/Usefetch";
 import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/CircleRating";
-import Img from "../../../components/lazyLoadImage/LazyloadImage.jsx";
+import Img from "../../../components/lazyLoadImage/lazyloadImage.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
-import PlayButton from '../../../components/playButton/PlayButton';
-import VideoPopup from '../../../components/videoPopup/VideoPopup';
+import PlayButton from '../../../components/playButton/playButton';
+import VideoPopup from '../../../components/videoPopup/videoPopup';
 
 
 

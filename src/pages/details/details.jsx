@@ -8,7 +8,7 @@ import Cast from '../../components/cast/cast.jsx';
 import VideosSection from '../../components/videosSection/videosSection.jsx';
 import Similar from '../../components/carousels-ll/Similar.jsx';
 import Recommendation from '../../components/carousels-ll/Recomendation.jsx';
-import SkLoad from '../../components/skLoad/SkLoad.jsx';
+import SkLoad from '../../components/skLoad/skLoad.jsx';
 
 const details = () => {
   useEffect(() => {

@@ -7,8 +7,8 @@ import Select from "react-select";
 
 import useFetch from "../../hooks/Usefetch";
 import { fetchDataFromApi } from "../../utils/api";
-import MovieCard from "../../components/movieCard/MovieCard";
-import Spinner from "../../components/spinner/Spinner";
+import MovieCard from "../../components/movieCard/movieCard";
+import Spinner from "../../components/spinner/spinner";
 
 let filters = {};
 
