@@ -74,7 +74,7 @@ const App = () => {
         <Route path='/search/:query' element={<SearchResult />} />
         <Route path='/explore/:mediaType' element={<Explore />} />
         <Route path='*' element={<PageNotFound />} />
-        <Route path='/trending' element={<Trending />} />
+        {/* <Route path='/trending' element={<Trending />} /> */}
 
       </Routes>
       <ScrollToTop />

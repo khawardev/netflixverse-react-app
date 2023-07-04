@@ -88,10 +88,10 @@ const Header = () => {
                     <div className="list">
                         <span className={click ? 'nav-menu active nav-menu-transition' : 'nav-menu'} >
                             <li>
-                                <span onClick={() => { Navigate('/media/1'); handleMenuItemClick(); }}>Movies</span>
+                                <span onClick={() => { Navigate('/explore/movie'); handleMenuItemClick(); }}>Movies</span>
                             </li>
                             <li>
-                                <span onClick={() => { Navigate('/search/hello'); handleMenuItemClick(); }}>Tv Series</span>
+                                <span onClick={() => { Navigate('/explore/tv'); handleMenuItemClick(); }}>Tv Series</span>
                             </li>
 
                             <li className="d-flex align-items-center justify-content-center gap-3 py-3 py-xl-0">

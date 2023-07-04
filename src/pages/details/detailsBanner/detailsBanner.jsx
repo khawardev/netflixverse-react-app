@@ -254,7 +254,7 @@ const detailsBanner = ({ video, crew }) => {
                                     <div className="container-fluid py-md-5 py-2">
                                         <div className="row p-0">
                                             {images.map((image, index) => (
-                                                <div className="col-md-3 col-6 p-l-0 pr-0 my-2" key={index}>
+                                                <div className="col-md-2 col-6 p-l-0 pr-0 my-2" key={index}>
                                                     {image && (
                                                         <>
                                                             <img src={image} style={{ width: '100%', borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }} />

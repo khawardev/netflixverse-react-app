@@ -26,31 +26,22 @@ const details = () => {
     setShow(true);
     const timeout = setTimeout(() => {
       setShow(false);
-    }, 1300);
-    return () => clearTimeout(timeout);
+    }, 1500);
+
+    const timeout3 = setTimeout(() => {
+      setShowDetails2(true);
+    }, 1600);
+    return () => clearTimeout(timeout, timeout3);
+
   }, [location]);
 
   const [showDetails, setShowDetails] = useState(false);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShowDetails(true);
-    }, 900);
-
-    return () => clearTimeout(timeout);
-  }, [location]);
-
   const [showDetails2, setShowDetails2] = useState(false);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShowDetails2(true);
-    }, 1600);
 
-    return () => clearTimeout(timeout);
-  }, [location]);
   return (
     <>
       {show && (< SkLoad />)}
-      {data?.results && showDetails && (
+      {data?.results && (
         <DetailsBanner video={matchingTrailers} crew={credits?.crew} />
       )}
       {showDetails2 && (
