@@ -7,7 +7,7 @@ import './searchResult.scss'
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchDataFromApi } from "../../utils/api";
-import MovieCard from "../../components/movieCard/movieCard";
+import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/spinner";
 import noResults from "../../assets/no-results.png";
 
