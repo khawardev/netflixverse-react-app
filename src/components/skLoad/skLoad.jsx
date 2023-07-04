@@ -1,5 +1,5 @@
 import './skLoad.scss';
-const skLoad = () => {
+const SkLoad = () => {
     return (
         <>
             <div style={{margin:'135px auto'}}>
@@ -26,4 +26,4 @@ const skLoad = () => {
     )
 }
 
-export default skLoad
+export default SkLoad

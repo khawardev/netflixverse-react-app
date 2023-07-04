@@ -10,7 +10,7 @@ import Similar from '../../components/carousels-ll/Similar.jsx';
 import Recommendation from '../../components/carousels-ll/Recomendation.jsx';
 import SkLoad from '../../components/skLoad/skLoad.jsx';
 
-const details = () => {
+const Details = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll window to top
   });
@@ -68,4 +68,4 @@ const details = () => {
 
 }
 
-export default details
+export default Details

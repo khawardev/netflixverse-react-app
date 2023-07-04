@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 import ReactPlayer from "react-player/youtube";
 import "./videoPopup.scss";
 import { BiX } from "react-icons/bi";
 import { useRef } from 'react';
-const videoPopup = ({ show, setShow, videoId, setVideoId }) => {
+const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
     const hidePopup = () => {
         setShow(false);
         setVideoId(null);
@@ -37,4 +38,4 @@ const videoPopup = ({ show, setShow, videoId, setVideoId }) => {
     );
 };
 
-export default videoPopup;
+export default VideoPopup;

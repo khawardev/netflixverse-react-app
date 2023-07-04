@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
@@ -16,7 +17,7 @@ import VideoPopup from '../../../components/videoPopup/videoPopup';
 
 
 
-const detailsBanner = ({ video, crew }) => {
+const DetailsBanner = ({ video, crew }) => {
 
 
     const [show, setShow] = useState(false);
@@ -278,4 +279,4 @@ const detailsBanner = ({ video, crew }) => {
     );
 };
 
-export default detailsBanner;
+export default DetailsBanner;
