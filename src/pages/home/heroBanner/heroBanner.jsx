@@ -5,7 +5,7 @@ import './heroBanner.scss'
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../../hooks/Usefetch';
 import { useSelector } from 'react-redux';
-import Lazyloadimage from '../../../components/lazyLoadImage/lazyloadImage'
+import Lazyloadimage from '../../../components/lazyLoadImage/LazyloadImage'
 import BackgroundImage from '../../../assets/Background.png'
 const HeroBanner = () => {
 

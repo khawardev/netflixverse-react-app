@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./videosSection.scss";
 import PlayButton from "../playButton/playButton";
 import VideoPopup from "../videoPopup/videoPopup.jsx";
-import Img from "../lazyLoadImage/lazyloadImage.jsx";
+import Img from "../lazyLoadImage/LazyloadImage.jsx";
 import { useRef } from "react";
 import PosterFallback from "../../assets/no-poster.png";
 
