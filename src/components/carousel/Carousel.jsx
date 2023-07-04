@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import Lazyloadimage from '../lazyLoadImage/LazyloadImage'
 import PosterFallback from "../../assets/no-poster.png";
-import CircleRating from '../circleRating/CircleRating.jsx';
+import CircleRating from '../circleRating/circleRating.jsx';
 import Genres from '../genres/Genres';
 
 
