@@ -7,7 +7,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import useFetch from "../../../hooks/Usefetch";
-import Genres from "../../../components/genres/Genres";
+import Genres from "../../../components/genres/Genres.jsx";
 import CircleRating from "../../../components/circleRating/circleRating";
 import Img from "../../../components/lazyLoadImage/LazyloadImage.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
