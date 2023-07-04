@@ -2,7 +2,7 @@
 // import './Trending.js';
 import './Trending.scss';
 import Extraction from '../../../assets/Extraction.png';
-import Switchtabs from '../../../components/switchTabs/switchtabs';
+import Switchtabs from '../../../components/switchTabs/Switchtabs';
 import { useState } from 'react';
 import useFetch from '../../../hooks/Usefetch';
 import Carousel from '../../../components/carousel/Carousel';

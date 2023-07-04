@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 // import './Trending.js';
-import Switchtabs from '../../../components/switchTabs/switchtabs';
+import Switchtabs from '../../../components/switchTabs/Switchtabs';
 import { useState } from 'react';
 import useFetch from '../../../hooks/Usefetch';
 import Carousel from '../../../components/carousel/Carousel';
