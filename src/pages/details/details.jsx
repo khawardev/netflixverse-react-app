@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react'
-import DetailsBanner from './detailsBanner/detailsBanner.jsx'
+import DetailsBanner from './detailsBanner/DetailsBanner.jsx'
 import { useParams, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/Usefetch.jsx';
-import Cast from '../../components/cast/cast.jsx';
-import VideosSection from '../../components/videosSection/videosSection.jsx';
+import Cast from '../../components/cast/Cast.jsx';
+import VideosSection from '../../components/videosSection/VideosSection.jsx';
 import Similar from '../../components/carousels-ll/Similar.jsx';
 import Recommendation from '../../components/carousels-ll/Recomendation.jsx';
-import SkLoad from '../../components/skLoad/skLoad.jsx';
+import SkLoad from '../../components/skLoad/SkLoad.jsx';
 
 const details = () => {
   useEffect(() => {

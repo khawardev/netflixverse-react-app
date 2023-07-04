@@ -2,9 +2,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./videosSection.scss";
-import PlayButton from "../playButton/playButton";
-import VideoPopup from "../videoPopup/videoPopup.jsx";
-import Img from "../../components/lazyLoadImage/LazyloadImage.jsx";
+import PlayButton from "../playButton/PlayButton";
+import VideoPopup from "../videoPopup/VideoPopup.jsx";
+import Img from "../lazyLoadImage/LazyloadImage.jsx";
 import { useRef } from "react";
 import PosterFallback from "../../assets/no-poster.png";
 
@@ -50,7 +50,7 @@ const VideosSection = ({ data, loading }) => {
                                                         <div className="videoThumbnail position-relative playBut">
                                                             <img
 
-                                                                src={`https://img.youtube.com/vi/${video?.key}/maxresdefault.jpg` }
+                                                                src={`https://img.youtube.com/vi/${video?.key}/maxresdefault.jpg`}
 
                                                                 alt=""
                                                                 onLoad={(e) => {

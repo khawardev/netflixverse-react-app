@@ -6,15 +6,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getApiConfiguration, getGenres } from './store/homeslice';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Header from './components/header/header.jsx'
-import Footer from './components/footer/footer'
-import Home from './pages/home/home';
-import Details from './pages/details/details'
+import Header from './components/header/Header.jsx'
+import Footer from './components/footer/Footer'
+import Home from './pages/home/Home';
+import Details from './pages/details/Details'
 import SearchResult from './pages/searchResult/searchResult'
 import Explore from './pages/explore/explore.jsx'
-import PageNotFound from './pages/404/pageNotFound'
+import PageNotFound from './pages/404/PageNotFound'
 import Trending from './pages/home/Trending/Trending.jsx';
-import ScrollToTop from './components/scrollToTop.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 const App = () => {
 

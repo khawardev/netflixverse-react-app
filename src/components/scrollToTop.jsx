@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Footer from "./footer/footer.jsx";
+import Footer from "./footer/Footer.jsx";
 
 function ScrollToTop() {
     const [showFooter, setShowFooter] = useState(false);
