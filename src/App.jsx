@@ -12,7 +12,7 @@ import Home from './pages/home/home';
 import Details from './pages/details/details'
 import SearchResult from './pages/searchResult/searchResult'
 import Explore from './pages/explore/explore.jsx'
-import PageNotFound from './pages/404/PageNotFound'
+import PageNotFound from './pages/404/pageNotFound'
 import Trending from './pages/home/Trending/Trending.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 
