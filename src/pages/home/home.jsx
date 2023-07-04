@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import './home.scss'
-import HeroBanner from './heroBanner/HeroBanner'
+import HeroBanner from './heroBanner/heroBanner'
 import Trending from './Trending/Trending.jsx'
 import Popular from './Popular/Popular'
 import TopRated from './topRated/TopRated'
