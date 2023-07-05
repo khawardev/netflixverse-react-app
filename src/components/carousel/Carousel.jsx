@@ -12,7 +12,7 @@ import dayjs from "dayjs";
 import Lazyloadimage from '../lazyLoadImage/LazyloadImage'
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from '../circleRating/circleRating.jsx';
-import Genres from '../genres/genres';
+import Genres from '../genres/Genres';
 
 
 const Carousel = ({ title, data, Loading, endpoint }) => {
