@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import useFetch from '../../../hooks/Usefetch';
 import { useSelector } from 'react-redux';
 import Lazyloadimage from '../../../components/lazyLoadImage/LazyloadImage'
-import BackgroundImage from '../../../assets/Background.png'
+import BackgroundImage from '../../../assets/Background.jpg'
 const HeroBanner = () => {
 
   const { data, loading } = useFetch("/movie/upcoming") // set url for fetching images from api
