@@ -13,7 +13,7 @@ import Img from "../../../components/lazyLoadImage/LazyloadImage.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
 import PlayButton from '../../../components/playButton/playButton';
 import VideoPopup from '../../../components/videoPopup/videoPopup';
-
+import Tags from '../../../components/tags/Tags';
 
 
 const DetailsBanner = ({ video, crew }) => {
@@ -131,7 +131,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         <div className='d-flex gap-3 align-items-center py-3'>
                                             <CircleRating width={'55px'} height={'55px'} Rating={data.vote_average.toFixed(1)} />
 
-                                            {/* <Genres fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} /> */}
+                                            <Tags  fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} />
 
                                         </div>
 

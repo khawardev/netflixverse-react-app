@@ -10,6 +10,9 @@ import Img from "../lazyLoadImage/LazyloadImage";
 import CircleRating from "../circleRating/circleRating";
 // import GenresSec from "../genres/genres";
 import PosterFallback from "../../assets/no-poster.png";
+import Tags from '../tags/Tags';
+
+
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
     // const sortedArray = data.sort((a, b) => {
@@ -31,7 +34,7 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
                     <React.Fragment>
                         <CircleRating width={'45px'} height={'45px'} Rating={data.vote_average.toFixed(1)} />
                         {console.log("Voting data : ", data.vote_average.toFixed(1))}
-                        {/* <GenresSec data={data.genre_ids.slice(0, 2)} /> */}
+                        <Tags data={data.genre_ids.slice(0, 2)} />
                     </React.Fragment>
                 )}
             </div>

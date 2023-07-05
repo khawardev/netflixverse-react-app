@@ -14,7 +14,7 @@ import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from '../circleRating/circleRating.jsx';
 // import Genres from '../genres/genres';
 
-
+import Tags from '../tags/Tags';
 const Carousel = ({ title, data, Loading, endpoint }) => {
 
     console.log("Endpoint from top rated and popular", endpoint);
@@ -74,7 +74,7 @@ const Carousel = ({ title, data, Loading, endpoint }) => {
                                 <div className='posterBlock'>
                                     <Lazyloadimage src={posterUrl} alt='' />
                                     <CircleRating width={'45px'} height={'45px'} Rating={item.vote_average.toFixed(1)} />
-                                    {/* <Genres data={item.genre_ids.slice(0, 2)} /> */}
+                                    <Tags  data={item.genre_ids.slice(0, 2)} />
                                 </div>
                                 <div className='textBlock mt-4 italic-bold-title'>
                                     {item.title || item.name}

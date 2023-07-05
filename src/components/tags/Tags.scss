@@ -1,0 +1,15 @@
+.Tags {
+    display: flex;
+    gap: 5px;
+    .Tag {
+      background: #e40000;
+      padding: 2px 7px;
+      font-size: 13px;
+      font-style: italic;
+      font-weight: 900;
+      border-radius: 30px;
+      color: white;
+      white-space: nowrap;
+    }
+  }
+  
