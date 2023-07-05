@@ -8,7 +8,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import useFetch from "../../../hooks/Usefetch";
-import Genres from "../../../components/genres/Genres";
+import genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/circleRating";
 import Img from "../../../components/lazyLoadImage/LazyloadImage.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
@@ -132,7 +132,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         <div className='d-flex gap-3 align-items-center py-3'>
                                             <CircleRating width={'55px'} height={'55px'} Rating={data.vote_average.toFixed(1)} />
 
-                                            <Genres fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} />
+                                            <genres fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} />
 
                                         </div>
 
