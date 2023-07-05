@@ -28,4 +28,4 @@ const Genres = ({ data, paddingx, fontSize }) => {
     )
 }
 
-export default Genres
+export default Genres;
