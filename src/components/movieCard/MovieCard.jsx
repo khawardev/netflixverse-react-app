@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import "./MovieCard.scss";
 import Img from "../lazyLoadImage/LazyloadImage";
 import CircleRating from "../circleRating/circleRating";
-import Genres from "../genres/Genres";
+import GenresSec from "../genres/Genres";
 import PosterFallback from "../../assets/no-poster.png";
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
@@ -31,7 +31,7 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
                     <React.Fragment>
                         <CircleRating width={'45px'} height={'45px'} Rating={data.vote_average.toFixed(1)} />
                         {console.log("Voting data : ", data.vote_average.toFixed(1))}
-                        <Genres data={data.genre_ids.slice(0, 2)} />
+                        <GenresSec data={data.genre_ids.slice(0, 2)} />
                     </React.Fragment>
                 )}
             </div>
