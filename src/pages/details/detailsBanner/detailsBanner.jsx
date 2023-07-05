@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useFetch from "../../../hooks/Usefetch";
-import GenresComp from "../../../components/genres/genres";
+import GenresComp from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/circleRating";
 import Img from "../../../components/lazyLoadImage/LazyloadImage.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
