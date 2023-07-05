@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/prop-types */
 import { useSelector } from 'react-redux';
 import './genres.scss';
-const Genres = ({ data, paddingx, fontSize }) => {
+const genre = ({ data, paddingx, fontSize }) => {
     const { genres } = useSelector((state) => state.home)
     // console.log("Genres id Data from carousel ", data);
     // console.log("Genres id Data from Store ", genres);
@@ -28,4 +29,4 @@ const Genres = ({ data, paddingx, fontSize }) => {
     )
 }
 
-export default Genres;
+export default genre;
