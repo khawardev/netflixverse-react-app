@@ -21,6 +21,7 @@ const Details = () => {
     result.name.includes("Trailer")
   );
   const [show, setShow] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const location = useLocation();
   useEffect(() => {
     setShow(true);
@@ -28,15 +29,13 @@ const Details = () => {
       setShow(false);
     }, 1500);
 
-    const timeout3 = setTimeout(() => {
-      setShowDetails2(true);
-    }, 1600);
-    return () => clearTimeout(timeout, timeout3);
+    const timeout2 = setTimeout(() => {
+      setShowDetails(true);
+    }, 1800);
+    return () => clearTimeout(timeout, timeout2);
 
   }, [location]);
 
-  const [showDetails, setShowDetails] = useState(false);
-  const [showDetails2, setShowDetails2] = useState(false);
 
   return (
     <>
@@ -44,7 +43,7 @@ const Details = () => {
       {data?.results && (
         <DetailsBanner video={matchingTrailers} crew={credits?.crew} />
       )}
-      {showDetails2 && (
+      {showDetails && (
         <>
           {credits && (
             <Cast data={credits?.cast} loading={creditsLoading} />

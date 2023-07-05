@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 import "./explore.scss";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -17,14 +19,22 @@ const sortbyData = [
   { value: "popularity.asc", label: "Popularity Ascending" },
   { value: "vote_average.desc", label: "Rating Descending" },
   { value: "vote_average.asc", label: "Rating Ascending" },
-  {
-    value: "primary_release_date.desc",
-    label: "Release Date Descending",
-  },
+  { value: "primary_release_date.desc", label: "Release Date Descending", },
   { value: "primary_release_date.asc", label: "Release Date Ascending" },
   { value: "original_title.asc", label: "Title (A-Z)" },
 ];
 
+const hoverStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    background: state.isFocused ? 'rgba(183, 183, 183, 0.264)' : 'rgb(71, 71, 71)',
+    ':hover': {
+      background: 'rgba(183, 183, 183, 0.264)',
+      cursor: 'pointer',
+     
+    },
+  }),
+};
 const Explore = () => {
   const [data, setData] = useState(null);
   const [pageNum, setPageNum] = useState(1);
@@ -95,15 +105,15 @@ const Explore = () => {
     fetchInitialData();
   };
 
+
+
   return (
     <div className="explorePage container">
       <div className="pageHeader">
         <div className="pageTitle bolder" style={{ fontStyle: 'italic' }}>
-          {mediaType === "tv"
-            ? "Explore TV Shows"
-            : "Explore Movies"}
+          {mediaType === "tv" ? "Explore TV Shows" : "Explore Movies"}
         </div>
-        <div className="filters" style={{ display: 'none' }}>
+        <div className="filters" >
           <Select
             isMulti
             name="genres"
@@ -116,6 +126,8 @@ const Explore = () => {
             placeholder="Select genres"
             className="react-select-container genresDD"
             classNamePrefix="react-select"
+            styles={hoverStyles}
+
           />
           <Select
             name="sortby"
@@ -126,6 +138,7 @@ const Explore = () => {
             placeholder="Sort by"
             className="react-select-container sortbyDD"
             classNamePrefix="react-select"
+            styles={hoverStyles}
           />
         </div>
       </div>

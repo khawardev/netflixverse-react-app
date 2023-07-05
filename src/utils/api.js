@@ -6,9 +6,9 @@ const headers = {
     Authorization: "Bearer " + TMBD_TOKEN,
 };
 
-export const fetchDataFromApi = async (url) => {
+export const fetchDataFromApi = async (url, params) => {
     try {
-        const response = await axios?.get(BASE_URL + url, { headers });
+        const response = await axios?.get(BASE_URL + url, { headers, params, });
         return response?.data;
     } catch (error) {
         console.log("Error in fetching API: ", error);
