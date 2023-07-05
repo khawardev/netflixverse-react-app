@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useFetch from "../../../hooks/Usefetch";
-import Genres from "../../../components/genres/genres";
+// import Genres from "../../../components/genres/genres";
 import CircleRating from "../../../components/circleRating/circleRating";
 import Img from "../../../components/lazyLoadImage/LazyloadImage.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
@@ -131,7 +131,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         <div className='d-flex gap-3 align-items-center py-3'>
                                             <CircleRating width={'55px'} height={'55px'} Rating={data.vote_average.toFixed(1)} />
 
-                                            <Genres fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} />
+                                            {/* <Genres fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} /> */}
 
                                         </div>
 
