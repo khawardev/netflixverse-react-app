@@ -17,7 +17,8 @@ import Tags from '../../../components/tags/Tags';
 
 
 const DetailsBanner = ({ video, crew }) => {
-
+    console.log("🚀 ~ file: detailsBanner.jsx:20 ~ DetailsBanner ~ video:", video)
+    console.log('Hello');
 
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
@@ -55,6 +56,8 @@ const DetailsBanner = ({ video, crew }) => {
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
     const [showSkeleton, setShowSkeleton] = useState(true);
+    console.log("🚀 ~ file: detailsBanner.jsx:24 ~ DetailsBanner ~ show:", show)
+    console.log("🚀 ~ file: detailsBanner.jsx:59 ~ DetailsBanner ~ showSkeleton:", showSkeleton)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -131,7 +134,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         <div className='d-flex gap-3 align-items-center py-3'>
                                             <CircleRating width={'55px'} height={'55px'} Rating={data.vote_average.toFixed(1)} />
 
-                                            <Tags  fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} />
+                                            <Tags fontSize="16px" data={data.genres.map(genre => genre.id).slice(0, 2)} />
 
                                         </div>
 

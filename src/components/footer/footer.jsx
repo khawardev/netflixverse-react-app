@@ -1,21 +1,20 @@
 /* eslint-disable no-unused-vars */
 import './footer.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { FaHeart } from 'react-icons/fa';
 
 import {
   faYoutube,
   faFacebook,
   faTwitter,
-  faInstagram
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-
-
 const Footer = () => {
+
   return (
     <>
       <div className="container-md container-fluid  text-white  py-2">
-        <div className="row p-2 p-md-5 ">
+        <div className="row p-2  text-center pt-3">
           <div className="col-12 d-md-flex gap-2 align-items-center justify-content-center text-center ">
             <div className='my-2 gap-2 d-flex align-items-center justify-content-center text-center' >
               <div className='button-background-move'>
@@ -60,13 +59,12 @@ const Footer = () => {
               <span ><FontAwesomeIcon className='button-text' icon={faInstagram} style={{ fontSize: '20px' }} /></span>
               <div className="fill-container"></div>
             </div>
-
-
           </div>
-
+          <p className='text-center mt-4 ' style={{ fontStyle: 'italic', fontWeight: 'bold', fontSize:'17px' }}>Made with &nbsp; <span > <FaHeart color='#da0101'/> </span> &nbsp; by Khawar Sultan</p>
         </div>
+       
       </div>
-
+  
 
 
 
