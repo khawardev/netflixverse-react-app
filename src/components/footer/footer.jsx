@@ -10,7 +10,6 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
-
   return (
     <>
       <div className="container-md container-fluid  text-white  py-2">
