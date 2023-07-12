@@ -48,6 +48,17 @@ const Carousel = ({ title, data, Loading, endpoint }) => {
 
         )
     }
+    const skPoster = () => {
+        return (
+            <>
+                <div className="skeletonItem" >
+                    <div className="posterBlock skeleton" style={{ borderRadius: '12px' }}></div>
+                </div>
+
+            </>
+
+        )
+    }
     return (
         <div className='container carousel  ' >
 
@@ -67,15 +78,15 @@ const Carousel = ({ title, data, Loading, endpoint }) => {
                             year: "numeric",
                         });
                         return (
-                            <div key={item.id}
-                                className='carouselItem'
-                                onClick={() => Navigate(`/${endpoint || item.media_type}/${item.id}`)}
-                            >
+                            <div key={item.id} className='carouselItem' onClick={() => Navigate(`/${endpoint || item.media_type}/${item.id}`)}>
+
                                 <div className='posterBlock'>
-                                    <Lazyloadimage src={posterUrl} alt='' />
+                                    <Lazyloadimage className='text-white' src={posterUrl} alt='' />
                                     <CircleRating width={'45px'} height={'45px'} Rating={item.vote_average.toFixed(1)} />
-                                    <Tags  data={item.genre_ids.slice(0, 2)} />
+                                    <Tags data={item.genre_ids.slice(0, 2)} />
                                 </div>
+
+
                                 <div className='textBlock mt-4 italic-bold-title'>
                                     {item.title || item.name}
                                 </div>
