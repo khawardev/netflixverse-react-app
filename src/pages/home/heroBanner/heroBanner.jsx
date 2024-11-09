@@ -12,18 +12,18 @@ const HeroBanner = () => {
   const { data, loading } = useFetch("/movie/upcoming") // set url for fetching images from api
   const [Background, SetBackground] = useState(""); // set background images into state
 
-  const [query, setquery] = useState(''); // setquery from input into the state
-
   const Navigate = useNavigate(); // For navigating to search/query
-
-  const { url } = useSelector((state) => state.home) // destructuring url from Home Slice
-
-
+  const [query, setquery] = useState(''); // setquery from input into the state
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) { // function to handle on Enter event
       Navigate(`/search/${query}`)
     }
   }
+
+  const { url } = useSelector((state) => state.home) // destructuring url from Home Slice
+
+
+ 
   useEffect(() => {
     const Bg = url?.backdrop + data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
     SetBackground(Bg);

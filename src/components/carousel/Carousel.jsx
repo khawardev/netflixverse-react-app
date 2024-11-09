@@ -2,18 +2,12 @@
 /* eslint-disable no-unused-vars */
 import './Carousel.scss';
 import React, { useRef } from "react";
-import {
-    BsFillArrowLeftCircleFill,
-    BsFillArrowRightCircleFill,
-} from "react-icons/bs";
+import {BsFillArrowLeftCircleFill,BsFillArrowRightCircleFill} from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import dayjs from "dayjs";
 import Lazyloadimage from '../lazyLoadImage/LazyloadImage'
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from '../circleRating/circleRating.jsx';
-// import Genres from '../genres/genres';
-
 import Tags from '../tags/Tags';
 const Carousel = ({ title, data, Loading, endpoint }) => {
 
