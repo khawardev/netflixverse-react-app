@@ -59,14 +59,26 @@ const Footer = () => {
               <div className="fill-container"></div>
             </div>
           </div>
-          <p className='text-center mt-4 ' style={{ fontStyle: 'italic', fontWeight: 'bold', fontSize:'17px' }}>Made with &nbsp; <span > <FaHeart color='#da0101'/> </span> &nbsp; by Khawar Sultan</p>
+          <p className='text-center mt-4 ' style={{ fontStyle: 'italic', fontWeight: 'bold', fontSize: '17px' }}>Made with &nbsp; <span > <FaHeart color='#da0101' /> </span> &nbsp; by <a
+            className="underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://khawarsultan.vercel.app"
+          >
+            Khawar Sultan
+          </a>
+             - 
+            <a
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/khawardev/netflixverse-react-app"
+            >
+              Github
+            </a>
+          </p>
         </div>
-       
       </div>
-  
-
-
-
     </>
   )
 }
